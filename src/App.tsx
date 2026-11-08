@@ -18,9 +18,14 @@ function App({ offerCount }: AppProps): JSX.Element {
       <Routes>
         <Route path="/" element={<MainPage offerCount={offerCount} />} />
         <Route path="/login" element={<Login />} />
-        <PrivatePath isAuthorized={isAuthorized}>
-          <Route path="/favorites" element={<FavouritesPage />} />
-        </PrivatePath>
+        <Route
+          path="/favorites"
+          element={
+            <PrivatePath isAuthorized={isAuthorized}>
+              <FavouritesPage />
+            </PrivatePath>
+          }
+        />
         <Route path="/offer/:id" element={<OfferPage />} />
       </Routes>
       <Fragment>
